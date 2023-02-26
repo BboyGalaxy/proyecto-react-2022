@@ -1,0 +1,34 @@
+.cripto {
+    border: 1px solid skyblue;
+    border-left: 10px solid skyblue;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+
+.info {
+    color: rgb(224, 220, 220);
+}
+
+.label {
+    color: skyblue;
+}
+
+.cripto-name {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+}
+/*.cripto-name h2{
+    background-color: rgb(10, 225, 24);
+}
+.cripto-name h3{
+    background-color: red;
+}*/
+
+.positivo {
+    color: rgb(8, 253, 57);
+}
+
+.negativo {
+    color: red;
+}
