@@ -3,6 +3,8 @@
     border-left: 10px solid skyblue;
     border-radius: 5px;
     padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
 }
 
 
@@ -16,7 +18,27 @@
 
 .cripto-name {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+}
+.cripto-name > h3 {
+    text-align: right;
+}
+
+.link-detalles {
+    display: flex;
+    justify-content: center;
+    /*background-color: brown;*/
+    margin-top: 15px;
+    height: 30px;
+    text-decoration: none;
+}
+
+.btn-detalles {
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid white;
 }
 /*.cripto-name h2{
     background-color: rgb(10, 225, 24);

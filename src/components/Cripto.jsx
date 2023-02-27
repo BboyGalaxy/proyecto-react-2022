@@ -1,13 +1,19 @@
 
 import { Link } from "react-router-dom"
 import "./Cripto.css"
+import axios from 'axios'
+import { useEffect } from "react"
 
-const Cripto = ({id, name, priceUsd, symbol, changePercent24Hr}) => {
-
+const Cripto = ({id, name, priceUsd, symbol, changePercent24Hr,url}) => {
+    let src = ""
+    if(typeof url === 'undefined') {
+    }
+    else{ src = url.url}
 
     return (
         <div className="cripto">
             <div className="cripto-name">
+                <img src={src} />
                 <h2>{name}</h2>
                 <h3>{symbol}</h3>
             </div>
@@ -17,7 +23,7 @@ const Cripto = ({id, name, priceUsd, symbol, changePercent24Hr}) => {
                     <span className="label" >Variacion 24hrs:</span>
                     <span className={parseFloat(changePercent24Hr) > 0 ? "positivo" : "negativo"}>{parseFloat(changePercent24Hr).toFixed(3)}%</span>
                 </p>   
-                <Link to={`/criptomonedas/${id}`}>Ver detalles </Link>
+                <Link className="link-detalles" to={`/criptomonedas/${id}`}><button className="btn-detalles">Ver detalles </button> </Link>
             </div>
         </div>
     )
