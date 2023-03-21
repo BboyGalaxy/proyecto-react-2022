@@ -14,7 +14,7 @@ const Cripto = ({id, name, priceUsd, symbol, changePercent24Hr,url}) => {
         <div className="cripto">
             <div className="cripto-name">
                 <img src={src} />
-                <h2>{name}</h2>
+                <Link className="link-detalles" to={`/criptomonedas/${id}`}><h2>{name}</h2></Link>
                 <h3>{symbol}</h3>
             </div>
             <div className="info">
@@ -23,7 +23,6 @@ const Cripto = ({id, name, priceUsd, symbol, changePercent24Hr,url}) => {
                     <span className="label" >Variacion 24hrs:</span>
                     <span className={parseFloat(changePercent24Hr) > 0 ? "positivo" : "negativo"}>{parseFloat(changePercent24Hr).toFixed(3)}%</span>
                 </p>   
-                <Link className="link-detalles" to={`/criptomonedas/${id}`}><button className="btn-detalles">Ver detalles </button> </Link>
             </div>
         </div>
     )

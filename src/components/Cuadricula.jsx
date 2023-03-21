@@ -2,12 +2,11 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import "./Cuadricula.css"
 import Cripto from './Cripto'
+import usePetition from '../hooks/usePetition'
 
 
 
 function Cuadricula() {
-
-  const API_URL = import.meta.env.VITE_API_URL
 
   const API_IMAGES_URL = "https://rest.coinapi.io/v1/assets/icons/32" //import.meta.env.VITE_API_IMAGES_URL
     const headers = {
@@ -15,21 +14,12 @@ function Cuadricula() {
     };
  
 
-  const [criptos, setCriptos] = useState()
+  const [criptos, cargando] = usePetition("assets")
   const [img, setImg] = useState([])
 
   useEffect(
     
     () => {
-      axios.get(`${API_URL}assets`)
-      .then((data) => {
-        setCriptos(data.data.data)
-      } )
-      .catch(() => {
-        console.error("La peticion fallo!")
-        
-      })
-
         axios.get(`${API_IMAGES_URL}`, {headers})
         .then((data) => {
             setImg(data.data)
@@ -45,7 +35,7 @@ function Cuadricula() {
 
   if(!criptos) return <span>Cargando...</span>
   return (
-    <div className='app-container'>
+    <div className='grid-container'>
       <h1>Lista de criptomonedas</h1>
       <div className="cripto-container">
         {
